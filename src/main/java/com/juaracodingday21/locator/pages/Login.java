@@ -23,7 +23,7 @@ public class Login {
 	private WebElement submit;
 	
 	public void logIn() {
-		email.sendKeys("ahmad@gmail.com");
+		email.sendKeys("ahmad88@gmail.com");
 		pass.sendKeys("albantani");
 		submit.click();
 		

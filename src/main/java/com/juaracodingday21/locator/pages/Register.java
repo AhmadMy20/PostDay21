@@ -18,6 +18,9 @@ public class Register {
 		PageFactory.initElements(driver, this);
 	}
 	//locator
+	
+//	@FindBy(css  = "#header > div.nav > div > div > nav > div.header_user_info > a")
+//	private WebElement sign;
 	@FindBy(id   = "email_create")
 	private WebElement emailcreate;
 	@FindBy(id   = "id_gender1")
@@ -68,16 +71,19 @@ public class Register {
 	private WebElement email;
 	@FindBy(css  = "#SubmitLogin > span")
 	private WebElement submit;
-	
+	@FindBy(css  = "#header > div.nav > div > div > nav > div:nth-child(2) > a")
+	private WebElement signout;
 	
 	
 	
 	public void siIn() {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(emailcreate));
-		scroll(driver);
+		//scroll(driver);
+//		tunggu();
+//		sign.click();
 		emailcreate.click();
-		emailcreate.sendKeys("ahmad@gmail.com");
+		emailcreate.sendKeys("ahmad88@gmail.com");
 		create.click();
 		gender.click();
 		firstName.sendKeys("ahmad");
@@ -100,13 +106,19 @@ public class Register {
 		phone_mobile.sendKeys("098765678");
 		alias.sendKeys("tangerang banten");
 		submitAccount.click();
-		email.sendKeys("ahmad@gmail.com");
-		pass.sendKeys("albantani");
-		submit.click();
+		signout.click();
 	}
 	public static void scroll(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("scrollBy(0,1000)");
+	}
+	public static void tunggu() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
